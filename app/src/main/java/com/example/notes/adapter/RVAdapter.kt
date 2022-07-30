@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.R
 import com.example.notes.model.NoteModel
+import com.example.notes.util.Util
 
 class RVAdapter(
     private val context: Context,
@@ -33,7 +34,7 @@ class RVAdapter(
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
         val currentNote = allNotes[position]
         holder.title.text = currentNote.noteTitle
-        holder.timestamp.text = currentNote.timeStamp.toString()
+        holder.timestamp.text = Util.getFormattedTime(currentNote.timeStamp)
         holder.delete.setOnClickListener {
             noteClickListener.onDeleteIconClick(currentNote)
         }
