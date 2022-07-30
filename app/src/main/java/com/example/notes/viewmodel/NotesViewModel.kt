@@ -50,7 +50,9 @@ class NotesViewModel(application: Application) : AndroidViewModel(application),
 
 
     override fun onNotesFetched(notesList: List<NoteModel>) {
-        _notesList.postValue(notesList)
+        _notesList.postValue(notesList.sortedByDescending {
+            it.timeStamp
+        })
         sendEvent(UiEvent.ToggleLoading(false))
     }
 
