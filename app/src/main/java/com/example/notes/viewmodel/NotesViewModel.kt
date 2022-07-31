@@ -1,6 +1,8 @@
 package com.example.notes.viewmodel
 
+import android.app.AlertDialog
 import android.app.Application
+import android.app.Dialog
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -62,6 +64,7 @@ class NotesViewModel(application: Application) : AndroidViewModel(application),
     }
 
     override fun onNoteDeleted(noteModel: NoteModel) {
+
         _notesList.postValue(
             _notesList.value?.filterNot {
                 it.id == noteModel.id
@@ -79,4 +82,6 @@ class NotesViewModel(application: Application) : AndroidViewModel(application),
             _uiEvents.send(event)
         }
     }
+
+
 }

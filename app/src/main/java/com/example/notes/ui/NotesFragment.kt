@@ -1,5 +1,6 @@
 package com.example.notes.ui
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.notes.R
 import com.example.notes.adapter.RVAdapter
 import com.example.notes.databinding.FragmentNotesBinding
 import com.example.notes.model.NoteModel
@@ -84,12 +86,27 @@ class NotesFragment : Fragment(), RVAdapter.NoteClickListener {
     }
 
     override fun onDeleteIconClick(noteModel: NoteModel) {
-        viewModel.deleteNote(noteModel)
+        showDialog(noteModel)
+//        viewModel.deleteNote(noteModel)
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    private fun showDialog(noteModel: NoteModel){
+        val dialog =
+            AlertDialog.Builder(requireContext()).setTitle("Confirmation")
+                .setMessage("Are you sure to delete this note?")
+                .setIcon(com.google.android.material.R.drawable.abc_list_selector_background_transition_holo_light).setNegativeButton("No"){ d, _ ->
+                    d.dismiss()
+                }.setPositiveButton("Yes"){ d, _ ->
+                    d.dismiss()
+                    viewModel.deleteNote(noteModel)
+                }.create()
+        dialog.show()
+
     }
 
 }

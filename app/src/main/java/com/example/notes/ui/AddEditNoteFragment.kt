@@ -57,7 +57,12 @@ class AddEditNoteFragment : Fragment() {
         binding?.notesDescription?.setText(noteModel.noteDescription)
 
         binding?.addNoteBtn?.setOnClickListener {
-            saveNote()
+            if(binding!!.noteTitle.text.toString().isNotEmpty() && binding!!.notesDescription.text.toString().isNotEmpty()){
+                saveNote()
+            }
+            else{
+                Toast.makeText(requireContext(),"Invalid title/description", Toast.LENGTH_SHORT).show()
+            }
         }
         collectUiEvents()
     }
