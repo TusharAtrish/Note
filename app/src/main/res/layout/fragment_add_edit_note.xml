@@ -11,11 +11,14 @@
         android:id="@+id/noteTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="686dp"
+        app:layout_constraintBottom_toTopOf="@+id/notesDescription"
+        android:background="@drawable/note_background"
         android:hint="@string/title"
-        android:paddingStart="6dp"
-        android:paddingEnd="6dp"
-        android:textSize="22sp"
+        android:padding="8dp"
+        android:paddingStart="11dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -23,13 +26,23 @@
     <EditText
         android:id="@+id/notesDescription"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/note_background"
+        android:gravity="start"
+        android:textStyle="normal"
         android:hint="@string/description"
-        android:paddingStart="8dp"
+        android:minHeight="50dp"
+        android:paddingStart="12dp"
+        android:textSize="15sp"
+        android:paddingTop="8dp"
         android:paddingEnd="4dp"
+        android:textColor="@color/white"
+
+        android:layout_marginBottom="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/addNoteBtn"
         app:layout_constraintTop_toBottomOf="@+id/noteTitle" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -52,8 +65,6 @@
         android:id="@+id/loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,19 +72,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/notesDescription"
         app:layout_constraintVertical_bias="0.89"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
         app:lottie_rawRes="@raw/anim_loading" />
 
-<!--    <ProgressBar-->
-<!--        android:id="@+id/loading"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:visibility="gone"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.494"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/notesDescription"-->
-<!--        app:layout_constraintVertical_bias="0.89" />-->
+    <!--    <ProgressBar-->
+    <!--        android:id="@+id/loading"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.494"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/notesDescription"-->
+    <!--        app:layout_constraintVertical_bias="0.89" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

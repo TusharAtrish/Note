@@ -6,6 +6,7 @@
     android:id="@+id/itemcv"
     app:cardCornerRadius="8dp"
     app:cardElevation="7dp"
+
     android:layout_width="match_parent"
     android:layout_margin="8dp"
     android:layout_height="wrap_content">
@@ -21,7 +22,7 @@
             android:hint="Title"
             android:paddingStart="10dp"
             android:textSize="22sp"
-            app:layout_constraintEnd_toStartOf="@+id/deleteBtn"
+            app:layout_constraintEnd_toStartOf="@+id/itemDeleteBtn"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
